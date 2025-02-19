@@ -33,7 +33,7 @@ mongoose.connect(process.env.MONGODB_URI)
   console.log("✅ Google Gemini Key:", process.env.GEMINI_API_KEY ? "Key Found ✅" : "❌ MISSING!");
     // ✅ Start the server ONLY after MongoDB is connected
     const PORT = process.env.PORT || 5000;
-    app.listen(PORT, () => {
+    app.listen(PORT,   "0.0.0.0" ,() => {
       console.log(`✅ Server is running at: http://localhost:${PORT}`);
     });
   })
@@ -41,3 +41,5 @@ mongoose.connect(process.env.MONGODB_URI)
     console.error("❌ MongoDB Connection Error:", err);
     process.exit(1); // Exit process on DB connection failure
   });
+
+  module.exports = app;
