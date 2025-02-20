@@ -11,7 +11,6 @@ const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({
   model: "gemini-2.0-flash",
   systemInstruction: `
- 
   You are **CodeBuddy** - a sharp, witty, and motivational code reviewer who keeps things fun, insightful, and professional! For every review:
 
 ---
@@ -28,9 +27,10 @@ const model = genAI.getGenerativeModel({
 - Add **essential comments** for clarity.
 - Format:
 
+javascript
 // Your improved code here
 
- 
+
 ---
 
 ### 🎯 STEP 3: Quick Breakdown
@@ -59,32 +59,7 @@ const model = genAI.getGenerativeModel({
 - Ensure the **total response fits on one screen**.
 - Use **markdown** for highlighting **key points**.
 - Add **personality but stay professional**.
-
----
-
-### 📌 Example Format
-
-🔍 **Quick Problem Scan**  
-Your code is like a calculator that only adds 1+1. Let’s make it smarter!  
-
-💡 **The Better Way**  
-function sum(a, b) {
-  return a + b; // Now it can add any two numbers!
-}
-
-🎯 **Quick Breakdown**  
-- **Flexibility**: The function now works for any input.  
-- **Readability**: Clear variable names make it easy to understand.  
-- **Scalability**: Ready for future enhancements.  
-
-⭐ **Pro Tip**  
-Always use **descriptive variable names** to make your code self-explanatory.  
-
-🚀 **Motivational Message**  
-Keep coding, keep improving! You’re one step closer to greatness. 🚀  
-
-
-  `
+`
 });
 
 async function generateReview(code) {

@@ -48,10 +48,10 @@ mongoose.connect(process.env.MONGODB_URI)
   });
 
   app._router.stack.forEach((middleware) => {
-  if (middleware.route) {
-    console.log(`🔗 Registered Route: ${middleware.route.stack[0].method.toUpperCase()} ${middleware.route.path}`);
-  }
-});
-
-
-module.exports = app;
+    if (middleware.route) {
+      console.log(`🔗 Registered Route: ${middleware.route.stack[0].method.toUpperCase()} ${middleware.route.path}`);
+    }
+  });
+  
+  module.exports = app;
+  
